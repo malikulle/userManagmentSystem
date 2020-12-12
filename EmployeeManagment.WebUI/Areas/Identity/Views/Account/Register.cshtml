@@ -1,0 +1,96 @@
+﻿@model UserRegisterDto
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Areas/Identity/Views/Shared/_Layout.cshtml";
+}
+
+<div class="login-container">
+    <div class="center">
+        <h1>
+            <i class="ace-icon fa fa-leaf green"></i>
+            <span class="red">Personel Takip</span>
+            <span class="white" id="id-text2">Sistemi</span>
+        </h1>
+    </div>
+
+    <div class="space-6"></div>
+
+    <div class="position-relative">
+        <div id="login-box" class="login-box visible widget-box no-border">
+            <div class="widget-body">
+                <div class="widget-main">
+                    <h4 class="header blue lighter bigger">
+                        <i class="ace-icon fa fa-coffee green"></i>
+                        Kayıt Olmak İçin Bilgilerinizi Giriniz
+                    </h4>
+
+                    <div class="space-6"></div>
+                    <div asp-validation-summary="All" class="text-danger"></div>
+
+                    <form method="post">
+                        <label class="block clearfix">
+                            <span class="block input-icon input-icon-right">
+                                <input asp-for="FirstName" type="tex" class="form-control" placeholder="İsim Giriniz" />
+                                <i class="ace-icon fa fa-user"></i>
+                            </span>
+                        </label>
+
+                        <label class="block clearfix">
+                            <span class="block input-icon input-icon-right">
+                                <input asp-for="LastName" type="text" class="form-control" placeholder="Soyisim Giriniz" />
+                                <i class="ace-icon fa fa-user"></i>
+                            </span>
+                        </label>
+
+                        <label class="block clearfix">
+                            <span class="block input-icon input-icon-right">
+                                <input asp-for="Email" type="email" class="form-control" placeholder="Email Giriniz" />
+                                <i class="ace-icon fa fa-user"></i>
+                            </span>
+                        </label>
+
+                        <label class="block clearfix">
+                            <span class="block input-icon input-icon-right">
+                                <input asp-for="Password" type="password" class="form-control" placeholder="Password" />
+                                <i class="ace-icon fa fa-lock"></i>
+                            </span>
+                        </label>
+                        <label class="block clearfix">
+                            <span class="block input-icon input-icon-right">
+                                <input asp-for="DateOfBirth" type="date" class="form-control" placeholder="Doğum Tarihi" />
+                                <i class="ace-icon fa fa-user"></i>
+                            </span>
+                        </label>
+
+                        <div class="space"></div>
+
+                        <div class="clearfix">
+                            <label class="inline">
+                                <input type="checkbox" class="ace" />
+                                <span class="lbl"> Beni Hatırla</span>
+                            </label>
+
+                            <button type="submit" class="width-35 pull-right btn btn-sm btn-primary">
+                                <i class="ace-icon fa fa-key"></i>
+                                <span class="bigger-110">Kayıt Ol</span>
+                            </button>
+                        </div>
+
+                        <div class="space-4"></div>
+                    </form>
+                </div><!-- /.widget-main -->
+
+                <div class="toolbar clearfix">
+
+                    <div>
+                        <a href="/Identity/Account/Login" data-target="#signup-box" class="user-signup-link">
+                            Giriş Yap
+                            <i class="ace-icon fa fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

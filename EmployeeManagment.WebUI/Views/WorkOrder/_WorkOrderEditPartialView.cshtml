@@ -1,0 +1,61 @@
+﻿@model EmployeeManagment.WebUI.Models.WorkOrderEditModel
+
+<div class="Editmodal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><span class="fas fa-plus"></span> Kullanıcı Ekle</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="İptal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="form-workorder-edit" asp-action="Edit" asp-controller="WorkOrder">
+                    <input name="IsValid" type="hidden" value="@ViewData.ModelState.IsValid.ToString()" />
+                    <div asp-validation-summary="All" class="text-danger" id="validation-summary" aria-hidden="true" style="display:none;"></div>
+                  
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Puan :</label>
+
+                        <div class="col-sm-9">
+                            <input type="number" asp-for="WorkOrder.Point" id="form-field-1" placeholder="Puan" class="col-xs-10 col-sm-5" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Çalışan Seçiniz:</label>
+
+                        <div class="col-sm-9">
+                            <select asp-items="Model.Users" asp-for="WorkOrder.AssignUserId" id="form-field-1" placeholder="Lütfen Çalışan Seçiniz" class="col-xs-10 col-sm-5">
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Izin Tipi :</label>
+
+                        <div class="col-sm-9">
+                            <select  asp-for="WorkOrder.WorkOrderStatus"  placeholder="Lütfen İş Durumunu Seçiniz" class="col-xs-10 col-sm-5">
+                                <option value="1">İş Emri Oluşturuldu</option>
+                                <option value="2">Atandı</option>
+                                <option value="3">Üstlenildi</option>
+                                <option value="4">Kapatıldı</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> İş Emri Açıklaması :</label>
+
+                        <div class="col-sm-9">
+                            <textarea asp-for="WorkOrder.Description" id="form-field-1" placeholder="İş Emri Açıklaması" class="col-xs-10 col-sm-5" ></textarea>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger btn-block" data-dismiss="modal"><span class="fas fa-times"></span> İptal</button>
+                <button type="button" class="btn btn-primary btn-block" id="btnSave"><span class="fas fa-save"></span> Kaydet</button>
+            </div>
+        </div>
+    </div>
+</div>

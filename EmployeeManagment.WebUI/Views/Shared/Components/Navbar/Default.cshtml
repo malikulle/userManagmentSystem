@@ -1,0 +1,38 @@
+﻿@model LoggedInUserDto
+
+<div id="navbar" class="navbar navbar-default          ace-save-state">
+    <div class="navbar-container ace-save-state" id="navbar-container">
+
+        <div class="navbar-header pull-left">
+            <a href="/Home/Index" class="navbar-brand">
+                <small>
+                    <i class="fa fa-leaf"></i>
+                    Personel Takip Sistemi
+                </small>
+            </a>
+        </div>
+
+        <div class="navbar-buttons navbar-header pull-right" role="navigation">
+            <ul class="nav ace-nav">
+                <li>
+                    <partial name="_Culture" />
+                </li>
+                <li>
+                    <a  href="#">
+                        <img class="nav-user-photo" src="~/Theme/assets/images/avatars/user.jpg" alt="Jason's Photo" />
+                        <span class="user-info">
+                            <small>Holgeldin,</small>
+                            @Model.User.FirstName @Model.User.LastName
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Identity/Account/Logout">
+                        <i class="ace-icon fa fa-power-off"></i>
+                        Çıkış Yap
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

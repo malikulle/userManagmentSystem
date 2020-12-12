@@ -1,0 +1,251 @@
+﻿@using EmployeeManagment.Entities.Enums
+@model List<UserLeaveRequestDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="page-header">
+    <h1>
+        <small>
+            <i class="ace-icon fa fa-angle-double-right"></i>
+            İzin Taleplerim
+        </small>
+    </h1>
+</div>
+
+<div style="margin-top: 20px">
+
+    <div class="col-xs-12">
+        <a asp-controller="UserLeaveRequest" asp-action="Create" class="btn btn-success btn-next" style="margin-bottom: 10px">Ekle</a>
+
+        <table id="user-request-table" class="table  table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Talep Oluşturan</th>
+                    <th>Oluşturulma Tarih</th>
+                    <th>İzin Tipi</th>
+                    <th>Başlangıç Tarihi</th>
+                    <th>Bitiş Tarihi</th>
+                    <th>Note</th>
+                    <th>Durum</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr name="@item.Id">
+                        <td>
+                            @item.RequestUser.FirstName @item.RequestUser.LastName
+                        </td>
+                        <td>
+                            @item.RequestDate.ToShortDateString()
+                        </td>
+                        <td>
+                            @item.UserLeaveType.Name
+                        </td>
+                        <td>
+                            @item.StartDate.ToShortDateString()
+                        </td>
+                        <td>
+                            @item.EndDate.ToShortDateString()
+                        </td>
+                        <td>@item.Note</td>
+
+                        <td>
+                            @if (item.Status == UserLeaveReqeustEnum.Approved)
+                            {
+                                <span style="color: green">@item.StatusText</span>
+                            }
+                            @if (item.Status == UserLeaveReqeustEnum.Rejected)
+                            {
+                                <span style="color: red">@item.StatusText</span>
+                            }
+                            @if (item.Status == UserLeaveReqeustEnum.Waiting)
+                            {
+                                <span style="color: orange">@item.StatusText</span>
+                            }
+                        </td>
+                        <td>
+                            @if (item.Status != UserLeaveReqeustEnum.Approved)
+                            {
+                                <div class="hidden-sm hidden-xs btn-group">
+                                    @if ((bool)ViewBag.ShowEdit)
+                                    {
+                                        <a asp-controller="UserLeaveRequest" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-xs btn-info">
+                                            <i class="ace-icon fa fa-pencil bigger-120"></i>
+                                        </a>
+                                        <button class="btn btn-xs btn-success btn-approve" data-id="@item.Id">
+                                           Onayla
+                                        </button>
+                                        <button class="btn btn-xs btn-warning btn-cancel" data-id="@item.Id">
+                                            Reddet
+                                        </button>
+                                    }
+
+                                    <button class="btn btn-xs btn-danger btn-remove" data-id="@item.Id">
+                                        <i class="ace-icon fa fa-trash-o bigger-120"></i>
+                                    </button>
+
+                                </div>
+                            }
+
+                        </td>
+                    </tr>
+                }
+
+
+            </tbody>
+        </table>
+    </div><!-- /.span -->
+</div>
+@section Scripts{
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var dataTable = $('#user-request-table').DataTable({
+                language: {
+                    "sDecimal": ",",
+                    "sEmptyTable": "Tabloda herhangi bir veri mevcut değil",
+                    "sInfo": "_TOTAL_ kayıttan _START_ - _END_ arasındaki kayıtlar gösteriliyor",
+                    "sInfoEmpty": "Kayıt yok",
+                    "sInfoFiltered": "(_MAX_ kayıt içerisinden bulunan)",
+                    "sInfoPostFix": "",
+                    "sInfoThousands": ".",
+                    "sLengthMenu": "Sayfada _MENU_ kayıt göster",
+                    "sLoadingRecords": "Yükleniyor...",
+                    "sProcessing": "İşleniyor...",
+                    "sSearch": "Ara:",
+                    "sZeroRecords": "Eşleşen kayıt bulunamadı",
+                    "oPaginate": {
+                        "sFirst": "İlk",
+                        "sLast": "Son",
+                        "sNext": "Sonraki",
+                        "sPrevious": "Önceki"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": artan sütun sıralamasını aktifleştir",
+                        "sSortDescending": ": azalan sütun sıralamasını aktifleştir"
+                    },
+                    "select": {
+                        "rows": {
+                            "_": "%d kayıt seçildi",
+                            "0": "",
+                            "1": "1 kayıt seçildi"
+                        }
+                    }
+                }
+            });
+
+            $(".btn-remove").click(function() {
+                var id = $(this).attr("data-id");
+                swal({
+                        title: "Silmek İstediğine Emin Misiniz ?",
+                        text: "Silinen Veri geri getirilemez !",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            $.ajax({
+                                type: "POST",
+                                url: '@Url.Action("Remove", "UserLeaveRequest")',
+                                dataType: "json",
+                                data: { id: id },
+                                success: function(data) {
+                                    if (data.success) {
+                                        var tableRow = $(`[name=${id}]`);
+                                        dataTable.row(tableRow).remove().draw();
+                                        toastr.success("İşlem Başarılı Bir Şekilde Gerçekleşti");
+                                    } else {
+                                        toastr.error("Bir Hata Oluştu");
+
+                                    }
+                                },
+                                error: function() {
+                                    toastr.error("Bir Hata Oluştu");
+                                }
+                            });
+
+
+                        }
+                    });
+            });
+
+
+            $(".btn-cancel").click(function() {
+                var id = $(this).attr("data-id");
+                swal({
+                        title: "Talebi Reddetmek İstediğinize Emin Misniz?",
+                        icon: "error",
+                        buttons: true
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            $.ajax({
+                                type: "POST",
+                                url: '@Url.Action("Cancel", "UserLeaveRequest")',
+                                dataType: "json",
+                                data: { id: id },
+                                success: function(data) {
+                                    if (data.success) {
+                                        var tableRow = $(`[name=${id}]`);
+                                        toastr.success("İşlem Başarılı Bir Şekilde Gerçekleşti");
+                                        window.reload();
+                                    } else {
+                                        toastr.error("Bir Hata Oluştu");
+
+                                    }
+                                },
+                                error: function() {
+                                    toastr.error("Bir Hata Oluştu");
+                                }
+                            });
+
+
+                        }
+                    });
+            });
+
+            $(".btn-approve").click(function() {
+                var id = $(this).attr("data-id");
+                swal({
+                        title: "Talebi Onaylamak İstediğinize Emin Misniz?",
+                        icon: "success",
+                        buttons: true
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            $.ajax({
+                                type: "POST",
+                                url: '@Url.Action("Approve", "UserLeaveRequest")',
+                                dataType: "json",
+                                data: { id: id },
+                                success: function(data) {
+                                    if (data.success) {
+                                        var tableRow = $(`[name=${id}]`);
+                                        toastr.success("İşlem Başarılı Bir Şekilde Gerçekleşti");
+                                        window.reload();
+                                    } else {
+                                        toastr.error("Bir Hata Oluştu");
+
+                                    }
+                                },
+                                error: function() {
+                                    toastr.error("Bir Hata Oluştu");
+                                }
+                            });
+
+
+                        }
+                    });
+            });
+
+        });
+    </script>
+
+}

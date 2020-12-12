@@ -1,0 +1,55 @@
+﻿@model LoggedInUserDto
+
+<ul class="nav nav-list">
+    <li class="active">
+        <a asp-controller="Home" asp-action="Index">
+            <i class="menu-icon fa fa-tachometer"></i>
+            <span class="menu-text"> Dashboard </span>
+        </a>
+
+        <b class="arrow"></b>
+    </li>
+    @if (Model.Roles.Any(x => x.Equals("Admin")))
+    {
+        <li class="">
+            <a asp-controller="UserLeaveTypes" asp-action="Index">
+                <i class="menu-icon fa fa-desktop"></i>
+                <span class="menu-text">
+                    Çalışan İzin Tipi Girişi
+                </span>
+            </a>
+        </li>
+        <li class="">
+            <a asp-controller="User" asp-action="Index">
+                <i class="menu-icon fa fa-users"></i>
+                <span class="menu-text">
+                    Kullanıcılar
+                </span>
+            </a>
+        </li>
+    }
+    <li class="">
+        <a asp-controller="UserLeaveRequest" asp-action="Index">
+            <i class="menu-icon fa fa-list-alt"></i>
+            <span class="menu-text">
+                İzin Talebi Oluştur
+            </span>
+        </a>
+    </li>
+    <li class="">
+        <a asp-controller="UserLeaveAllocation" asp-action="Index">
+            <i class="menu-icon fa fa-list"></i>
+            <span class="menu-text">
+                İzin Geçmişi
+            </span>
+        </a>
+    </li>
+    <li class="">
+        <a asp-controller="WorkOrder" asp-action="Index">
+            <i class="menu-icon fa fa-briefcase"></i>
+            <span class="menu-text">
+                İş Emirleri
+            </span>
+        </a>
+    </li>
+</ul>

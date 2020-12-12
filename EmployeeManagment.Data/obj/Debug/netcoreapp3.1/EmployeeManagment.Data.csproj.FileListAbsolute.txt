@@ -1,0 +1,15 @@
+C:\Users\malik\source\repos\EmployeeManagment\EmployeeManagment.Data\bin\Debug\netcoreapp3.1\EmployeeManagment.Data.deps.json
+C:\Users\malik\source\repos\EmployeeManagment\EmployeeManagment.Data\bin\Debug\netcoreapp3.1\EmployeeManagment.Data.runtimeconfig.json
+C:\Users\malik\source\repos\EmployeeManagment\EmployeeManagment.Data\bin\Debug\netcoreapp3.1\EmployeeManagment.Data.runtimeconfig.dev.json
+C:\Users\malik\source\repos\EmployeeManagment\EmployeeManagment.Data\bin\Debug\netcoreapp3.1\EmployeeManagment.Data.dll
+C:\Users\malik\source\repos\EmployeeManagment\EmployeeManagment.Data\bin\Debug\netcoreapp3.1\EmployeeManagment.Data.pdb
+C:\Users\malik\source\repos\EmployeeManagment\EmployeeManagment.Data\obj\Debug\netcoreapp3.1\EmployeeManagment.Data.csprojAssemblyReference.cache
+C:\Users\malik\source\repos\EmployeeManagment\EmployeeManagment.Data\obj\Debug\netcoreapp3.1\EmployeeManagment.Data.AssemblyInfoInputs.cache
+C:\Users\malik\source\repos\EmployeeManagment\EmployeeManagment.Data\obj\Debug\netcoreapp3.1\EmployeeManagment.Data.AssemblyInfo.cs
+C:\Users\malik\source\repos\EmployeeManagment\EmployeeManagment.Data\obj\Debug\netcoreapp3.1\EmployeeManagment.Data.csproj.CoreCompileInputs.cache
+C:\Users\malik\source\repos\EmployeeManagment\EmployeeManagment.Data\obj\Debug\netcoreapp3.1\EmployeeManagment.Data.dll
+C:\Users\malik\source\repos\EmployeeManagment\EmployeeManagment.Data\obj\Debug\netcoreapp3.1\EmployeeManagment.Data.pdb
+C:\Users\malik\source\repos\EmployeeManagment\EmployeeManagment.Data\obj\Debug\netcoreapp3.1\EmployeeManagment.Data.genruntimeconfig.cache
+C:\Users\malik\source\repos\EmployeeManagment\EmployeeManagment.Data\bin\Debug\netcoreapp3.1\EmployeeManagment.Entities.dll
+C:\Users\malik\source\repos\EmployeeManagment\EmployeeManagment.Data\bin\Debug\netcoreapp3.1\EmployeeManagment.Entities.pdb
+C:\Users\malik\source\repos\EmployeeManagment\EmployeeManagment.Data\obj\Debug\netcoreapp3.1\EmployeeManagment.Data.csproj.CopyComplete

@@ -1,0 +1,16 @@
+C:\Users\malik\source\repos\EmployeeManagment\EmployeeManagment.Service\bin\Debug\netcoreapp3.1\EmployeeManagment.Service.deps.json
+C:\Users\malik\source\repos\EmployeeManagment\EmployeeManagment.Service\bin\Debug\netcoreapp3.1\EmployeeManagment.Service.dll
+C:\Users\malik\source\repos\EmployeeManagment\EmployeeManagment.Service\bin\Debug\netcoreapp3.1\EmployeeManagment.Service.pdb
+C:\Users\malik\source\repos\EmployeeManagment\EmployeeManagment.Service\bin\Debug\netcoreapp3.1\EmployeeManagment.Core.dll
+C:\Users\malik\source\repos\EmployeeManagment\EmployeeManagment.Service\bin\Debug\netcoreapp3.1\EmployeeManagment.Data.dll
+C:\Users\malik\source\repos\EmployeeManagment\EmployeeManagment.Service\bin\Debug\netcoreapp3.1\EmployeeManagment.Entities.dll
+C:\Users\malik\source\repos\EmployeeManagment\EmployeeManagment.Service\bin\Debug\netcoreapp3.1\EmployeeManagment.Core.pdb
+C:\Users\malik\source\repos\EmployeeManagment\EmployeeManagment.Service\bin\Debug\netcoreapp3.1\EmployeeManagment.Data.pdb
+C:\Users\malik\source\repos\EmployeeManagment\EmployeeManagment.Service\bin\Debug\netcoreapp3.1\EmployeeManagment.Entities.pdb
+C:\Users\malik\source\repos\EmployeeManagment\EmployeeManagment.Service\obj\Debug\netcoreapp3.1\EmployeeManagment.Service.csprojAssemblyReference.cache
+C:\Users\malik\source\repos\EmployeeManagment\EmployeeManagment.Service\obj\Debug\netcoreapp3.1\EmployeeManagment.Service.AssemblyInfoInputs.cache
+C:\Users\malik\source\repos\EmployeeManagment\EmployeeManagment.Service\obj\Debug\netcoreapp3.1\EmployeeManagment.Service.AssemblyInfo.cs
+C:\Users\malik\source\repos\EmployeeManagment\EmployeeManagment.Service\obj\Debug\netcoreapp3.1\EmployeeManagment.Service.csproj.CoreCompileInputs.cache
+C:\Users\malik\source\repos\EmployeeManagment\EmployeeManagment.Service\obj\Debug\netcoreapp3.1\EmployeeManagment.Service.csproj.CopyComplete
+C:\Users\malik\source\repos\EmployeeManagment\EmployeeManagment.Service\obj\Debug\netcoreapp3.1\EmployeeManagment.Service.dll
+C:\Users\malik\source\repos\EmployeeManagment\EmployeeManagment.Service\obj\Debug\netcoreapp3.1\EmployeeManagment.Service.pdb

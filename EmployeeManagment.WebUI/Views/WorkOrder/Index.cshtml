@@ -1,0 +1,166 @@
+﻿@model List<WorkOrderDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="modalPlaceHolder" aria-hidden="true"></div>
+
+
+<div class="page-header">
+    <h1>
+        <small>
+            <i class="ace-icon fa fa-angle-double-right"></i>
+            Çalışan İzin Tipi Listesi
+        </small>
+    </h1>
+</div>
+
+<div style="margin-top: 20px">
+
+    <div class="col-xs-12">
+
+        @if ((bool)ViewBag.AllowCreate)
+        {
+            <a asp-controller="WorkOrder" asp-action="Create" class="btn btn-success btn-next" style="margin-bottom: 10px">Ekle</a>
+        }
+
+        <table id="work-order-table" class="table  table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Resim</th>
+                    <th>İş Emri No</th>
+                    <th>Oluşturulma Tarihi</th>
+                    <th>Durum</th>
+                    <th>Sorumlu Kullanıcı</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr name="@item.Id">
+                        <td>
+                            @if (item.ImageUrl != null)
+                            {
+                                <img class="img-rounded" height="60" width="60" src="~/images/@item.ImageUrl" alt="-" />
+                            }
+                        </td>
+                        <td>
+                            @item.WorkOrderNumber
+                        </td>
+                        <td>
+                            @item.CreatedDate.ToShortDateString()
+                        </td>
+                        <td>
+                            @item.StatusText
+                        </td>
+                        <td>
+                            @if (item.AssignUser != null)
+                            {
+                                @item.AssignUser.FirstName @item.AssignUser.LastName 
+                            }
+                        </td>
+                        <td>
+                            @if ((bool) ViewBag.AllowCreate)
+                            {
+                                <div class="hidden-sm hidden-xs btn-group">
+
+                                    <a asp-controller="WorkOrder" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-xs btn-info btn-edit">
+                                        <i class="ace-icon fa fa-pencil bigger-120"></i>
+                                    </a>
+
+                                    <button class="btn btn-xs btn-danger btn-remove" data-id="@item.Id">
+                                        <i class="ace-icon fa fa-trash-o bigger-120"></i>
+                                    </button>
+                                </div>
+                            }
+                              
+                        </td>
+                    </tr>
+                }
+
+
+            </tbody>
+        </table>
+    </div><!-- /.span -->
+</div>
+@section Scripts{
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var dataTable = $('#work-order-table').DataTable({
+                language: {
+                    "sDecimal": ",",
+                    "sEmptyTable": "Tabloda herhangi bir veri mevcut değil",
+                    "sInfo": "_TOTAL_ kayıttan _START_ - _END_ arasındaki kayıtlar gösteriliyor",
+                    "sInfoEmpty": "Kayıt yok",
+                    "sInfoFiltered": "(_MAX_ kayıt içerisinden bulunan)",
+                    "sInfoPostFix": "",
+                    "sInfoThousands": ".",
+                    "sLengthMenu": "Sayfada _MENU_ kayıt göster",
+                    "sLoadingRecords": "Yükleniyor...",
+                    "sProcessing": "İşleniyor...",
+                    "sSearch": "Ara:",
+                    "sZeroRecords": "Eşleşen kayıt bulunamadı",
+                    "oPaginate": {
+                        "sFirst": "İlk",
+                        "sLast": "Son",
+                        "sNext": "Sonraki",
+                        "sPrevious": "Önceki"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": artan sütun sıralamasını aktifleştir",
+                        "sSortDescending": ": azalan sütun sıralamasını aktifleştir"
+                    },
+                    "select": {
+                        "rows": {
+                            "_": "%d kayıt seçildi",
+                            "0": "",
+                            "1": "1 kayıt seçildi"
+                        }
+                    }
+                }
+            });
+
+            $(".btn-remove").click(function() {
+                var id = $(this).attr("data-id");
+                swal({
+                        title: "Silmek İstediğine Emin Misiniz ?",
+                        text: "Silinen Veri geri getirilemez !",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            $.ajax({
+                                type: "POST",
+                                url: '@Url.Action("Remove", "WorkOrder")',
+                                dataType: "json",
+                                data: { id: id },
+                                success: function(data) {
+                                    if (data.success) {
+                                        var tableRow = $(`[name=${id}]`);
+                                        dataTable.row(tableRow).remove().draw();
+                                        toastr.success("İşlem Başarılı Bir Şekilde Gerçekleşti");
+                                    } else {
+                                        toastr.error("Bir Hata Oluştu");
+
+                                    }
+                                },
+                                error: function() {
+                                    toastr.error("Bir Hata Oluştu");
+                                }
+                            });
+
+
+                        }
+                    });
+            });
+
+        });
+    </script>
+
+}

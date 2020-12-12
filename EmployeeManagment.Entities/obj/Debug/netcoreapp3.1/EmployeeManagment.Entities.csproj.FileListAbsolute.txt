@@ -1,0 +1,13 @@
+C:\Users\malik\source\repos\EmployeeManagment\EmployeeManagment.Entities\bin\Debug\netcoreapp3.1\EmployeeManagment.Entities.deps.json
+C:\Users\malik\source\repos\EmployeeManagment\EmployeeManagment.Entities\bin\Debug\netcoreapp3.1\EmployeeManagment.Entities.dll
+C:\Users\malik\source\repos\EmployeeManagment\EmployeeManagment.Entities\bin\Debug\netcoreapp3.1\EmployeeManagment.Entities.pdb
+C:\Users\malik\source\repos\EmployeeManagment\EmployeeManagment.Entities\obj\Debug\netcoreapp3.1\EmployeeManagment.Entities.csprojAssemblyReference.cache
+C:\Users\malik\source\repos\EmployeeManagment\EmployeeManagment.Entities\obj\Debug\netcoreapp3.1\EmployeeManagment.Entities.AssemblyInfoInputs.cache
+C:\Users\malik\source\repos\EmployeeManagment\EmployeeManagment.Entities\obj\Debug\netcoreapp3.1\EmployeeManagment.Entities.AssemblyInfo.cs
+C:\Users\malik\source\repos\EmployeeManagment\EmployeeManagment.Entities\obj\Debug\netcoreapp3.1\EmployeeManagment.Entities.csproj.CoreCompileInputs.cache
+C:\Users\malik\source\repos\EmployeeManagment\EmployeeManagment.Entities\obj\Debug\netcoreapp3.1\EmployeeManagment.Entities.dll
+C:\Users\malik\source\repos\EmployeeManagment\EmployeeManagment.Entities\obj\Debug\netcoreapp3.1\EmployeeManagment.Entities.pdb
+C:\Users\malik\source\repos\EmployeeManagment\EmployeeManagment.Entities\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\malik\source\repos\EmployeeManagment\EmployeeManagment.Entities\bin\Debug\netcoreapp3.1\System.IO.Pipelines.dll
+C:\Users\malik\source\repos\EmployeeManagment\EmployeeManagment.Entities\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.xml
+C:\Users\malik\source\repos\EmployeeManagment\EmployeeManagment.Entities\obj\Debug\netcoreapp3.1\EmployeeManagment.Entities.csproj.CopyComplete
